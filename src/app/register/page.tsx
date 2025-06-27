@@ -39,7 +39,7 @@ export default function RegisterPage() {
       } else {
         setError(data.message || "Register gagal")
       }
-    } catch (e) {
+    } catch {
       setError("Register gagal")
     }
     setLoading(false)

@@ -42,7 +42,7 @@ export default function BookingPage() {
       const data = await res.json()
       if (data.success) setBookings(data.bookings)
       else setError(data.message || "Gagal mengambil data")
-    } catch (e) {
+    } catch {
       setError("Gagal mengambil data")
     }
     setLoading(false)
@@ -54,7 +54,7 @@ export default function BookingPage() {
     setLoading(true)
     setError("")
     try {
-      let body: any = { ...form }
+      let body: Record<string, unknown> = { ...form }
       if (editId) {
         body = { id: editId, ...form }
         delete body._id
@@ -76,7 +76,7 @@ export default function BookingPage() {
       } else {
         setError(data.message || "Gagal menyimpan data")
       }
-    } catch (e) {
+    } catch {
       setError("Gagal menyimpan data")
     }
     setLoading(false)
@@ -110,7 +110,7 @@ export default function BookingPage() {
       const data = await res.json()
       if (data.success) fetchBookings(token)
       else setError(data.message || "Gagal menghapus data")
-    } catch (e) {
+    } catch {
       setError("Gagal menghapus data")
     }
     setLoading(false)

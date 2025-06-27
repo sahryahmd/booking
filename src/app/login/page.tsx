@@ -26,7 +26,7 @@ export default function LoginPage() {
       } else {
         setError(data.message || "Login gagal")
       }
-    } catch (e) {
+    } catch {
       setError("Login gagal")
     }
     setLoading(false)
